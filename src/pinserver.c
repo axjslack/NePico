@@ -15,6 +15,7 @@
 
 #include "common.h"
 #include "pinmesg.h"
+#include "gpiocontrol.h"
 
 int server_main(selector *sel)
 {
@@ -74,4 +75,21 @@ int server_main(selector *sel)
      
     return 0;
 }
+
+
+int main(int argc, char *argv[])
+{
+	selector *localpin;
+	
+	error_print("\n NePiCo alpha (test) \n");
+	
+	localpin=malloc(sizeof(selector));
+	init_localpin(localpin);
+	setdirection_localpin(localpin, OUT);
+	//multiled_kr_7p(localpin);
+	server_main(localpin);
+	
+	return 0; 
+}
+
 

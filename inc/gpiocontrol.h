@@ -11,26 +11,6 @@
 #define LOCALMAPPING
 
 
-typedef enum gpio_availability {
-	OK,
-	KO
-} gpio_av; 
-
-
-typedef struct single_pin {
-	uint8_t gpion;
-	gpio_av available;
-} pin;
-
-typedef struct pin_selector {
-	pin pin_n[PIN_SET_DIM];
-} selector;
-
-//library function
-
-typedef uint8_t gpn;
-
-
 typedef enum gpiodirection {
 	IN,
 	OUT,
@@ -41,6 +21,30 @@ typedef enum gpiovalue {
 	OFF=0,
 	ON=1
 } gpv;
+
+typedef uint8_t gpn;
+
+
+typedef enum gpio_availability {
+	OK,
+	KO
+} gpio_av; 
+
+
+typedef struct single_pin {
+	uint8_t gpion;
+	gpd direction;
+	gpio_av available;
+} pin;
+
+typedef struct pin_selector {
+	pin pin_n[PIN_SET_DIM];
+} selector;
+
+//library function
+
+
+
 
 
 

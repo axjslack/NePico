@@ -1,9 +1,13 @@
 #ifndef _COMMON_H
 #define _COMMON_H
 
+#include <stdio.h>
+
 #define error_print(...) fprintf(stderr, __VA_ARGS__);
 //#define debug_print(...) fprintf(stderr, __VA_ARGS__);
-#define DBG
+
+
+//#define DBG
 #ifdef DBG
 #define debug_print(...) fprintf(stderr, __VA_ARGS__);
 #else

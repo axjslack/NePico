@@ -209,17 +209,6 @@ int select_conf_file(char *conffile)
 }
 
 
-int parse_engine()
-{
-
-
-}
-
-
-
-
-
-
 
 /*
 

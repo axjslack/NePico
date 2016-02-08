@@ -1,4 +1,4 @@
-#include <stdio.h>
+/*#include <stdio.h>
 #include "common.h"
 #include "gpiocontrol.h"
 #include <stdlib.h>
@@ -20,3 +20,4 @@ int main(int argc, char *argv[])
 }
 
 
+*/
