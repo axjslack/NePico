@@ -1,4 +1,5 @@
-CC=$(CROSS_COMPILE)gcc
+CC=$(CROSS_COMPILE)gcc -EL
+CLIENT_CC=gcc
 
 SRCDIR=src
 HEADER=inc
@@ -44,7 +45,7 @@ $(LIB) : $(LIB_SRC)
 
 
 $(CL_OBJS) : $(SRCDIR)/$(CL_SRC)
-	$(CC) $(CFLAGS) -c $< -o $@
+	$(CLIENT_CC) $(CFLAGS) -c $< -o $@
 
 $(SR_OBJS) : $(SRCDIR)/$(SR_SRC)
 	$(CC) $(CFLAGS) -c $< -o $@
@@ -52,7 +53,7 @@ $(SR_OBJS) : $(SRCDIR)/$(SR_SRC)
 
 
 $(CLIENT): $(CL_OBJS) 
-	$(CC) $(CFLAGS)  $^ -o $@ $(LDFLAGS)
+	$(CLIENT_CC) $(CFLAGS)  $^ -o $@ 
 		
 $(SERVER): $(SR_OBJS)
 	$(CC) $(CFLAGS) $^ -o $@ $(LDFLAGS)
