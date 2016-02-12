@@ -8,7 +8,7 @@
 #define PIN_SET_DIM 32
 #define MAX_PIN 255
 
-#define LOCALMAPPING
+//#define LOCALMAPPING
 
 
 typedef enum gpiodirection {
@@ -74,6 +74,9 @@ int led_pulse(gpn n);
 uint8_t init_localpin(selector *localpin);
 uint8_t multiled_kr_7p(selector *localpin);
 void set_pin_cycle(selector *localpin, uint8_t *oplist_static, gpv op);
+void setdirection_localpin(selector *localpin, gpd direction);
+void init_confpin(selector *confpin, int pos);
+void setdirection_confpin(selector *confpin, int pos);
 
 
 #endif // _GPIOCONTROL_H

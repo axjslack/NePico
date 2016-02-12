@@ -3,6 +3,7 @@
 #include <string.h> 
 
 #include "gpiocontrol.h"
+#include "confparser.h"
 
 #include "common.h"
 //#define error_print(...) fprintf(stderr, __VA_ARGS__);
@@ -10,6 +11,17 @@
 #define LOCALCONF "gpiomap.conf"
 #define ETCCONF "/etc/gpiomap.conf"
 
+
+void print_pin_selector(selector *sel, int pos)
+{
+	int i;
+	
+	for(i=0;i<pos;i++)
+	{
+		error_print("Pos: %d\t gpion: %d\t gpiodirection %d\n", i, sel->pin_n[i].gpion,  sel->pin_n[i].direction);
+	}
+	
+}
 
 int add_pin(selector *sel, pin p, int pos)
 {
@@ -57,7 +69,6 @@ int read_single_line(FILE *fp1, char **line)
 {
 	char c,d, *templine;
 	int count=0,i=0;
-	int pos=0
 	
 
 	
@@ -121,15 +132,15 @@ int read_single_line(FILE *fp1, char **line)
 
 
 
-int main_parse()
+int parseconf(char *conffile, selector *confpin)
 {
 	FILE *p1;
 	char **line;
 	pin newpin;
-	int res, res2;
+	int res, res2, pos=0;
 
 
-	p1=fopen("pippo.txt","r");
+	p1=fopen(conffile,"r");
 	line=malloc(sizeof(char**));
 	*line=NULL;
 
@@ -153,13 +164,15 @@ int main_parse()
 		if(res)
 		{
 			debug_print("\n New pin detected: Direction %d, Gpio number %d \n", newpin.direction, newpin.gpion);
+			add_pin(confpin, newpin, pos);
+			pos++;
 		}
 	}
 
 	fclose(p1);
 	free(line);
 
-	return 0;
+	return pos;
 
 }
 
@@ -172,7 +185,7 @@ int check_conf_file(char *filename)
 	p=fopen(filename, "r");
 	if(p!=NULL)
 	{
-		error_print("Filename: %s\n", filename);
+		debug_print("Filename: %s\n", filename);
 		fclose(p);		
 		return 0;
 	}
@@ -208,68 +221,27 @@ int select_conf_file(char *conffile)
 
 }
 
-
-
-/*
-
-
-int select_conf_file(char *conffile)
-{
-	FILE *p1,*p2;
-
-	p1=fopen("gpiomap.conf", "r");
-	if(p1!=NULL)
-	{
-		error_print("\n Using local conf file \n");
-		conffile=malloc(sizeof(strlen("gpiomap.conf")));
-		strcpy(conffile, "gpiomap.conf");
-		error_print("Filename: %s\n", conffile);
-		fclose(p1);
-		return 0;
-	}
-	else
-	{
-		fclose(p1);
-		p2=fopen("/etc/gpiomap.conf", "r");
-		if(p2!=NULL)
-		{
-			error_print("\n Using etc conf file \n");
-			conffile=malloc(sizeof(strlen("/etc/gpiomap.conf")));
-			strcpy(conffile, "/etc/gpiomap.conf");
-			error_print("Filename: %s\n", conffile);
-			fclose(p2);
-			return 0;
-		}
-		else
-		{
-			error_print("\n Unable to find valid conf file \n");
-			fclose(p2);
-			return 1;
-		}
-	}
-
-}
-
-
-*/
-
-int main_conf()
+int running_conf(selector *confpin)
 {
 	char conffile[64];
 	int result=224;
+	int pin_detect=0;
 
 	result=select_conf_file(conffile);
 	
 	if(result == 0)
 	{
 		printf("\n Using the %s \n", conffile);
+		pin_detect=parseconf(conffile, confpin);
+		print_pin_selector(confpin, pin_detect);
+		
 	}
 	else
 	{
 		printf("\n Fail to found a know conffile\n");
 	}
 
-	return 0;
+	return pin_detect;
 	
 
 

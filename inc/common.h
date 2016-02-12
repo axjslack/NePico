@@ -7,7 +7,7 @@
 //#define debug_print(...) fprintf(stderr, __VA_ARGS__);
 
 
-//#define DBG
+#define DBG
 #ifdef DBG
 #define debug_print(...) fprintf(stderr, __VA_ARGS__);
 #else
