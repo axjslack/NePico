@@ -247,6 +247,29 @@ void deinit_localpin(selector *localpin)
 
 #endif //LOCALMAPPING
 
+void init_confpin(selector *confpin, int pos)
+{
+	int i;
+	
+	for(i=0; i<pos; i++)
+	{
+		reserve_gpio(confpin->pin_n[i].gpion);
+	}
+	
+}
+
+void setdirection_confpin(selector *confpin, int pos)
+{
+	int i; 
+	
+	for(i=0;i<pos;i++)
+	{
+		error_print("\n Asking for GPIO %d Direction", confpin->pin_n[i].gpion);
+		set_direction(confpin->pin_n[i].gpion, confpin->pin_n[i].direction);
+	}	
+}
+
+
 
 uint8_t multiled_kr_7p(selector *localpin)
 {	
