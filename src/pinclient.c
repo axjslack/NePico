@@ -80,7 +80,7 @@ int main(int argc, char *argv[])
 	}
 	error_print("\n sbit: %lu cbit: %lu \n", to_send.sbit, to_send.cbit);
 	
-	to_send.slt=1;
+	to_send.slt=SC_CMD;
 	
 	send_pinmesg(to_send, port, ip); 
 	

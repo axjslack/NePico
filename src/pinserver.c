@@ -18,6 +18,12 @@
 #include "gpiocontrol.h"
 #include "confparser.h"
 
+void null_function()
+{
+	//Here only for debug purpose
+}
+
+
 int server_main(selector *sel)
 {
     int socket_desc,new_socket, c, dfl_msgsize;
@@ -66,7 +72,11 @@ int server_main(selector *sel)
 			error_print("recv failed");
 		}
 		print_message(to_rec);
-		decode_mesg(sel, to_rec);
+		switch(to_rec->slt) {
+			case NULL_CMD : null_function(); break;
+			case SC_CMD : decode_mesg(sel, to_rec); break;
+			default : null_function();
+		}	
     }
      if (new_socket<0)
     {

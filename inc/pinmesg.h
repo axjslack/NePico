@@ -8,6 +8,12 @@
 #define MAX_OPXMESG 32
 #define END_OF_LIST 255
 
+#define NULL_CMD	0x00	//Null command, use TBD
+#define SC_CMD 		0x01 	//Normal Set Clear CMD
+#define READ_CMD	0x02	//Read pin status
+#define RPIN_CMD	0x04	//Read pin mapping
+#define SRV_CMD		0x08	//Special server command
+
 
 typedef struct pinmessage {
 	uint8_t slt; //selector

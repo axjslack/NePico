@@ -22,14 +22,14 @@ long_line_behaviour=1
 long_line_column=72
 
 [files]
-current_page=3
-FILE_NAME_0=1132;C;0;EUTF-8;1;1;0;%2Fhome%2Falexjan%2Fdevelop%2FNePiCo%2Fsrc%2Fpinserver.c;0;4
-FILE_NAME_1=520;C;0;EUTF-8;1;1;0;%2Fhome%2Falexjan%2Fdevelop%2FNePiCo%2Finc%2Fpinmesg.h;0;4
+current_page=1
+FILE_NAME_0=472;C;0;EUTF-8;1;1;0;%2Fhome%2Falexjan%2Fdevelop%2FNePiCo%2Fsrc%2Fpinserver.c;0;4
+FILE_NAME_1=358;C;0;EUTF-8;1;1;0;%2Fhome%2Falexjan%2Fdevelop%2FNePiCo%2Finc%2Fpinmesg.h;0;4
 FILE_NAME_2=1048;C;0;EUTF-8;1;1;0;%2Fhome%2Falexjan%2Fdevelop%2FNePiCo%2Fsrc%2Fpinmesg.c;0;4
 FILE_NAME_3=105;C;0;EUTF-8;1;1;0;%2Fhome%2Falexjan%2Fdevelop%2FNePiCo%2Finc%2Fgpiocontrol.h;0;4
 FILE_NAME_4=3598;C;0;EUTF-8;1;1;0;%2Fhome%2Falexjan%2Fdevelop%2FNePiCo%2Fsrc%2Fgpiocontrol.c;0;4
 FILE_NAME_5=37;C;0;EUTF-8;1;1;0;%2Fhome%2Falexjan%2Fdevelop%2FNePiCo%2Finc%2Fcommon.h;0;4
-FILE_NAME_6=1211;C;0;EUTF-8;1;1;0;%2Fhome%2Falexjan%2Fdevelop%2FNePiCo%2Fsrc%2Fpinclient.c;0;4
+FILE_NAME_6=1545;C;0;EUTF-8;1;1;0;%2Fhome%2Falexjan%2Fdevelop%2FNePiCo%2Fsrc%2Fpinclient.c;0;4
 FILE_NAME_7=289;C;0;EUTF-8;1;1;0;%2Fhome%2Falexjan%2Fdevelop%2FNePiCo%2Fsrc%2Fmain.c;0;4
 FILE_NAME_8=0;C;0;EUTF-8;1;1;0;%2Fhome%2Falexjan%2Fdevelop%2FNePiCo%2Finc%2Flocalmap.h;0;4
 
