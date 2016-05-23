@@ -14,6 +14,11 @@
 
 //Decode
 
+/*
+ * This function generate an operationlist static (oplist). This will definethe pins will be involved
+ */
+
+
 void gen_oplist_static(uint32_t pinconf, uint8_t *oplist_static)
 {
 	int i=0,j=-1;
@@ -30,6 +35,11 @@ void gen_oplist_static(uint32_t pinconf, uint8_t *oplist_static)
 	oplist_static[j]=END_OF_LIST;
 }
 
+/*
+ * This function read the operation list (Debug purpose) 
+ * */
+
+
 void read_oplist_static(uint8_t *oplist_static)
 {
 	int i=0;
@@ -41,6 +51,12 @@ void read_oplist_static(uint8_t *oplist_static)
 	}
 	
 }
+
+/*
+ * This function decode the message recieved and call function to create
+ * an operation list static. 
+ * When the operation list is created, start the "set" and "clear" cycle.
+*/
 
 
 void decode_mesg(selector *sel, pinmsg *mesg)
@@ -64,6 +80,10 @@ void decode_mesg(selector *sel, pinmsg *mesg)
 
 
 //Other
+
+/*
+ * Debug message to see the message recieved
+ */ 
 
 void print_message(pinmsg *to_read)
 {
