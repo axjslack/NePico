@@ -7,6 +7,14 @@
 //#define debug_print(...) fprintf(stderr, __VA_ARGS__);
 
 
+typedef struct serial_port {
+	int ttyn;
+	int bdrate;
+	char mode[4];
+} serial_port_t;
+
+
+
 #define DBG
 #ifdef DBG
 #define debug_print(...) fprintf(stderr, __VA_ARGS__);

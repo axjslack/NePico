@@ -105,11 +105,26 @@ int main(int argc, char *argv[])
 	selector *confpin;
 	int pos;
 	
+	char *serport=NULL, *baud=NULL, *ports=NULL; //Serial port configuration parameter
+	
 	error_print("\n NePiCo beta (test) \n");
+	//Configuration of the GPIOs as pin
+	
 	confpin=malloc(sizeof(selector));
 	pos=running_conf(confpin);
 	init_confpin(confpin, pos);
 	setdirection_confpin(confpin, pos);
+	
+	
+	//Enabling the server
+    
+    //Serial part
+    //TODO
+    
+    
+    
+    
+    //Network Part
 	server_main(confpin);
 	
 
