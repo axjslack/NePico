@@ -21,8 +21,10 @@ CFLAGS += -I $(HEADER) -L . -g -Wall
 
 LIB_SRC := $(SRCDIR)/gpiocontrol.c \
 $(SRCDIR)/confparser.c \
-$(SRCDIR)/pinmesg.c 
-LIB_OBJ := gpiocontrol.o confparser.o pinmesg.o 
+$(SRCDIR)/pinmesg.c \
+$(SRCDIR)/serial.c \
+$(SRCDIR)/rs232.c
+LIB_OBJ := gpiocontrol.o confparser.o pinmesg.o serial.o rs232.o 
 
 CL_SRC = pinclient.c 
 SR_SRC= pinserver.c 

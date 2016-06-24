@@ -22,14 +22,26 @@ long_line_behaviour=1
 long_line_column=72
 
 [files]
-current_page=5
-FILE_NAME_0=2626;C;0;EUTF-8;1;1;0;%2Fhome%2Falex%2Fdevel%2Fnepico%2Fsrc%2Fpinserver.c;0;4
-FILE_NAME_1=1519;C;0;EUTF-8;1;1;0;%2Fhome%2Falex%2Fdevel%2Fnepico%2Fsrc%2Fpinmesg.c;0;4
-FILE_NAME_2=0;C;0;EUTF-8;1;1;0;%2Fhome%2Falex%2Fdevel%2Fnepico%2Fsrc%2Fpinclient.c;0;4
-FILE_NAME_3=0;C;0;EUTF-8;1;1;0;%2Fhome%2Falex%2Fdevel%2Fnepico%2Fsrc%2Foldcode.c;0;4
-FILE_NAME_4=0;C;0;EUTF-8;1;1;0;%2Fhome%2Falex%2Fdevel%2Fnepico%2Fsrc%2Fmain.c;0;4
-FILE_NAME_5=0;C;0;EUTF-8;1;1;0;%2Fhome%2Falex%2Fdevel%2Fnepico%2Fsrc%2Fgpiocontrol.c;0;4
-FILE_NAME_6=3608;C;0;EUTF-8;1;1;0;%2Fhome%2Falex%2Fdevel%2Fnepico%2Fsrc%2Fconfparser.c;0;4
+current_page=9
+FILE_NAME_0=2928;C;0;EUTF-8;1;1;0;%2Fhome%2Falex%2Fdevelop%2Fnepico%2Fsrc%2Fconfparser.c;0;4
+FILE_NAME_1=1810;C;0;EUTF-8;1;1;0;%2Fhome%2Falex%2Fdevelop%2Fnepico%2Fsrc%2Fgpiocontrol.c;0;4
+FILE_NAME_2=0;C;0;EUTF-8;1;1;0;%2Fhome%2Falex%2Fdevelop%2Fnepico%2Fsrc%2Fmain.c;0;4
+FILE_NAME_3=0;C;0;EUTF-8;1;1;0;%2Fhome%2Falex%2Fdevelop%2Fnepico%2Fsrc%2Foldcode.c;0;4
+FILE_NAME_4=0;C;0;EUTF-8;1;1;0;%2Fhome%2Falex%2Fdevelop%2Fnepico%2Fsrc%2Fpinclient.c;0;4
+FILE_NAME_5=0;C;0;EUTF-8;1;1;0;%2Fhome%2Falex%2Fdevelop%2Fnepico%2Fsrc%2Fpinmesg.c;0;4
+FILE_NAME_6=4260;C;0;EUTF-8;1;1;0;%2Fhome%2Falex%2Fdevelop%2Fnepico%2Fsrc%2Fpinserver.c;0;4
+FILE_NAME_7=254;C;0;EUTF-8;1;1;0;%2Fhome%2Falex%2Fdevelop%2Fnepico%2Finc%2Fcommon.h;0;4
+FILE_NAME_8=0;C;0;EUTF-8;1;1;0;%2Fhome%2Falex%2Fdevelop%2Fnepico%2Finc%2Fconfparser.h;0;4
+FILE_NAME_9=0;C;0;EUTF-8;1;1;0;%2Fhome%2Falex%2Fdevelop%2Fnepico%2Finc%2Fgpiocontrol.h;0;4
+FILE_NAME_10=0;C;0;EUTF-8;1;1;0;%2Fhome%2Falex%2Fdevelop%2Fnepico%2Finc%2Fpinmesg.h;0;4
+FILE_NAME_11=2164;C;0;EUTF-8;1;1;0;%2Fhome%2Falex%2Fdevelop%2Fnepico%2Finc%2Frs232.h;0;4
+FILE_NAME_12=10188;C;0;EUTF-8;1;1;0;%2Fhome%2Falex%2Fdevelop%2Fnepico%2Fsrc%2Frs232.c;0;4
+FILE_NAME_13=1433;C;0;EUTF-8;1;1;0;%2Fhome%2Falex%2Fdevelop%2Fnepico%2Fsrc%2Fserial.c;0;4
 
 [VTE]
 last_dir=/home
+
+[editor]
+line_wrapping=false
+line_break_column=72
+auto_continue_multiline=true

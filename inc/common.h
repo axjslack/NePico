@@ -13,7 +13,20 @@ typedef struct serial_port {
 	char mode[4];
 } serial_port_t;
 
+typedef enum eConn_type {
+	serial,
+	network,
+	undef
+} Conn_type_t; 
 
+typedef enum eIP_type {
+	ipv4,
+	ipv6,
+	unspec
+} IP_type_t;
+
+
+int select_serial(char *serport);
 
 #define DBG
 #ifdef DBG

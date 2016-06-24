@@ -1,10 +1,11 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
+#include <stdint.h>
 
 #include "common.h"
 #include "rs232.h"
-
+#include "pinmesg.h"
 
 int select_serial(char *serport)
 {
@@ -49,14 +50,14 @@ int serial_connect(serial_port_t sport, uint8_t *serial_pinmsg)
 
 	sleep(1);
 
-	count=RS232_PollComport(sport.ttyn, reply, sizeof(pinmsg));
+	count=RS232_PollComport(sport.ttyn, serial_pinmsg, sizeof(pinmsg));
 	
 
 #ifdef DBG
 	error_print("\n%d byte read from %d at %d Kb/s \n", count, sport.ttyn, sport.bdrate);
 	for(i=0;i<count;i++)
 	{
-		error_print(" %X ", reply[i]);
+		error_print(" %X ", serial_pinmsg[i]);
 	}
 #endif
 	return result;

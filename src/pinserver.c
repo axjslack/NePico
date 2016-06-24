@@ -1,7 +1,7 @@
 /*
  * Server TCP IP for pincontrol
- * The server is no-multithread. This is not an error is necessary.
- * I'm unable to garantee the concurrency on pin manage
+ * The server is no-multithread. This is not an error: is necessary.
+ * I'm unable to garantee the concurrency on pin management
  */
 
 
@@ -21,6 +21,20 @@
 void null_function()
 {
 	//Here only for debug purpose
+}
+
+void print_usage()
+{
+	error_print("\n nepico_server parameters \n");
+	error_print("\n Network Connection parameter\n");
+	error_print("-n :\t\t set network connection\n");
+	error_print("-i <ipv4|ipv6> :\t\t set the ip protocol\n");
+	error_print("-p <port> :\t\t set the liestening port \n");
+	error_print("\n Serial Connection parameter\n");
+	error_print("-s :\t\t set serial connection\n");
+	error_print("-c <ttyport> :\t\t set the serial port\n");
+	error_print("-b <port> :\t\t set the connection speed (baud)\n");
+
 }
 
 
@@ -87,9 +101,19 @@ int server_main(selector *sel)
     return 0;
 }
 
+void serial_main(serial_port_t sport, selector *confpin)
+{
+		
+}
+
+
+
+
 
 int main(int argc, char *argv[])
 {
+	
+/* The local mapping will disappear in the stable release */	
 #ifdef LOCALMAPPING
 	selector *localpin;
 	
@@ -99,15 +123,21 @@ int main(int argc, char *argv[])
 	localpin=malloc(sizeof(selector));
 	init_localpin(localpin);
 	setdirection_localpin(localpin, OUT);
-	//multiled_kr_7p(localpin);
 	server_main(localpin);
 #else
 	selector *confpin;
 	int pos;
 	
-	char *serport=NULL, *baud=NULL, *ports=NULL; //Serial port configuration parameter
+	/*Serial port or network configuration parameter*/
+	char c,*serport=NULL, *baud=NULL, *ports=NULL, *ip="ipv4"; 
+	Conn_type_t	connection=undef;
+	serial_port_t	sport;
+	IP_type_t	iptype;
 	
 	error_print("\n NePiCo beta (test) \n");
+	
+	
+	
 	//Configuration of the GPIOs as pin
 	
 	confpin=malloc(sizeof(selector));
@@ -116,20 +146,66 @@ int main(int argc, char *argv[])
 	setdirection_confpin(confpin, pos);
 	
 	
-	//Enabling the server
-    
-    //Serial part
-    //TODO
-    
-    
-    
-    
-    //Network Part
-	server_main(confpin);
 	
+	while ((c = getopt (argc, argv, "snc:b:p:i:")) != -1)
+	{
+		switch(c)
+		{
+			case 's': connection=serial; break;
+			case 'n': connection=network; break;
+			case 'c': serport = optarg; break;
+			case 'b': baud = optarg; break;
+			case 'p': ports = optarg; break;
+			case 'i': ip = optarg; break;
+			
+		}
+		
+		
+	}
+	
+	
+	if(connection==undef)
+	{
+		error_print("\n No connection type selected \n");
+		print_usage();
+		return 2;
+	}
 
 
+	if(connection==serial)
+	{
 
+		if(serport==NULL || baud==NULL )
+		{
+			error_print("\n Serial connection need of a serial port  and a baud rate\n");
+			print_usage();
+			return 4;
+		}
+		else
+		{
+			sport.ttyn=select_serial(serport);
+			sport.bdrate=atoi(baud);
+			sport.mode[0]='8';
+			sport.mode[1]='N';
+			sport.mode[2]='1';
+			sport.mode[3]=0;
+			serial_main(sport, confpin);
+		}
+	}
+
+	if(connection==network)
+	{
+		if(ports==NULL || ip==NULL )
+		{
+			error_print("\n For a correct network connection, an IP and a port are needed\n");
+			print_usage();
+			return 4;
+		}
+		else
+		{
+			server_main(confpin);
+		}
+	}
 #endif	
 	return 0; 
 }
